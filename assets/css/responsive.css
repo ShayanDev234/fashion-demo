@@ -1,0 +1,201 @@
+/* AÉTHER STUDIO - Responsive Adjustments CSS */
+
+/* --- Desktop & Wide Screens --- */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* --- Laptop & Medium Screens --- */
+@media (max-width: 1199px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    .category-card {
+        height: 500px;
+    }
+    .section-padding {
+        padding: 90px 0;
+    }
+}
+
+/* --- Tablets & Small Screens --- */
+@media (max-width: 991px) {
+    /* Navbar Adjustment */
+    .luxury-navbar {
+        padding: 15px 0;
+        background-color: var(--color-white) !important;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .luxury-navbar .nav-link {
+        color: var(--color-dark) !important;
+        padding: 8px 0 !important;
+    }
+    .luxury-navbar .navbar-brand {
+        color: var(--color-dark) !important;
+    }
+    .brand-light {
+        display: none !important;
+    }
+    .brand-dark {
+        display: block !important;
+    }
+    .navbar-icons a {
+        color: var(--color-dark) !important;
+    }
+    .navbar-toggler {
+        border: none;
+        padding: 0;
+        color: var(--color-dark);
+        font-size: 20px;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    
+    /* Mega Menu disabled on mobile, falls back to clean dropdown links */
+    .mega-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        padding: 10px 0 20px 15px;
+        display: none;
+    }
+    .nav-item-dropdown:hover .mega-menu {
+        display: block;
+    }
+
+    /* Hero Splitting */
+    .hero-split-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+    .hero-left-content {
+        padding: 120px 25px 60px 25px;
+        text-align: center;
+        align-items: center;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-desc {
+        max-width: 100%;
+    }
+    .hero-right-gallery {
+        height: 60vh;
+        width: 100%;
+    }
+    .scroll-indicator-container {
+        display: none;
+    }
+
+    /* Grid Sections */
+    .category-card {
+        height: 400px;
+        margin-bottom: 24px;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .section-header {
+        margin-bottom: 45px;
+    }
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    /* Shop Page Mobile Filters */
+    .shop-filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 320px;
+        height: 100vh;
+        background-color: var(--color-white);
+        z-index: 1050;
+        padding: 30px;
+        overflow-y: auto;
+        box-shadow: 15px 0 40px rgba(0,0,0,0.1);
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .shop-filter-sidebar.active {
+        transform: translateX(0);
+    }
+    .mobile-filter-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.4);
+        z-index: 1049;
+        display: none;
+        backdrop-filter: blur(2px);
+    }
+    .mobile-filter-backdrop.active {
+        display: block;
+    }
+    .filter-close-btn-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+
+    /* Details Page gallery list */
+    .product-gallery-row {
+        flex-direction: column-reverse;
+    }
+    .product-thumbnails-col {
+        flex-direction: row !important;
+        margin-top: 15px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    .product-thumbnail-item {
+        width: 70px !important;
+        height: 90px !important;
+    }
+}
+
+/* --- Mobile Devices --- */
+@media (max-width: 575px) {
+    body {
+        font-size: 14px;
+    }
+    .hero-left-content {
+        padding: 100px 15px 50px 15px;
+    }
+    .hero-title {
+        font-size: 2.4rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .category-card {
+        height: 320px;
+        padding: 20px;
+    }
+    .category-card-overlay {
+        padding: 20px;
+    }
+    .category-card-title {
+        font-size: 1.5rem;
+    }
+    .parallax-banner-section {
+        height: 50vh;
+    }
+    .parallax-content .section-title {
+        font-size: 2.2rem;
+    }
+    .mini-cart-drawer {
+        width: 100%;
+    }
+    .modal-body p-5 {
+        padding: 25px !important;
+    }
+}

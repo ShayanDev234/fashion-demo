@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" class="header-secondary">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AÉTHER STUDIO - Luxury Cart & Checkout</title>
+    <meta name="description" content="Review your luxury selections, apply promotion vouchers, and proceed to complete your transaction.">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <style>
+        /* Checkout Page Specific Styles */
+        .checkout-input {
+            border: none;
+            border-bottom: 1px solid var(--color-border);
+            padding: 10px 0;
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--color-dark);
+            border-radius: 0;
+            width: 100%;
+            transition: var(--transition-fast);
+        }
+        .checkout-input:focus {
+            outline: none;
+            border-color: var(--color-dark);
+        }
+        .checkout-label {
+            font-family: var(--font-body);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-muted);
+            margin-bottom: 5px;
+            display: block;
+        }
+        .checkout-summary-card {
+            background-color: var(--color-light-gray);
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+        }
+        .coupon-input-group {
+            display: flex;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .coupon-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 0;
+            font-family: var(--font-body);
+            font-size: 13px;
+        }
+        .coupon-input:focus {
+            outline: none;
+        }
+        .coupon-btn {
+            background: transparent;
+            border: none;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--color-dark);
+            transition: var(--transition-fast);
+        }
+        .coupon-btn:hover {
+            color: var(--color-gold);
+        }
+        .checkout-card-item img {
+            border-radius: 4px;
+            border: 1px solid var(--color-border);
+        }
+        
+        /* Success Modal styling */
+        #successModal .modal-content {
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .success-checkmark-circle {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 30px auto;
+            color: var(--color-gold);
+            font-size: 2rem;
+            animation: successScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+        @keyframes successScale {
+            0% { transform: scale(0.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Custom Mouse Cursor -->
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-ring"></div>
+
+    <!-- 2. Sticky Secondary Header Navbar -->
+    <header class="luxury-navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler d-lg-none bg-transparent border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdowns" aria-controls="navbarDropdowns" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Brand Logo -->
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-dark">AÉTHER</span>
+            </a>
+
+            <!-- Mega Menu & Nav Links -->
+            <nav class="collapse navbar-collapse d-lg-block" id="navbarDropdowns">
+                <ul class="navbar-nav d-lg-flex flex-lg-row justify-content-center m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item nav-item-dropdown">
+                        <a class="nav-link" href="shop.html">Collections <i class="fa-solid fa-chevron-down ms-1" style="font-size: 8px;"></i></a>
+                        <div class="mega-menu">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <h6 class="mega-menu-title">Men</h6>
+                                        <ul class="mega-menu-list">
+                                            <li><a href="shop.html?category=men">New Apparel</a></li>
+                                            <li><a href="shop.html?category=men">Outerwear</a></li>
+                                            <li><a href="shop.html?category=men">Knitwear</a></li>
+                                            <li><a href="shop.html?category=men">Trousers</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <h6 class="mega-menu-title">Women</h6>
+                                        <ul class="mega-menu-list">
+                                            <li><a href="shop.html?category=women">New Arrivals</a></li>
+                                            <li><a href="shop.html?category=women">Sweaters</a></li>
+                                            <li><a href="shop.html?category=women">Jackets & Coats</a></li>
+                                            <li><a href="shop.html?category=women">Denim</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <h6 class="mega-menu-title">Essentials</h6>
+                                        <ul class="mega-menu-list">
+                                            <li><a href="shop.html?category=accessories">Bags & Leather</a></li>
+                                            <li><a href="shop.html?category=accessories">Caps & Beanies</a></li>
+                                            <li><a href="shop.html?category=footwear">Court Sneakers</a></li>
+                                            <li><a href="shop.html?category=footwear">Leather Boots</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-image-card">
+                                            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=500" alt="New Season look">
+                                            <div class="mega-menu-image-overlay">
+                                                <span>Summer '26</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="checkout.html">Checkout</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Navbar Utilities Icons -->
+            <div class="navbar-icons">
+                <a href="#" class="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#" class="cart-toggle" aria-label="Wishlist"><i class="fa-regular fa-heart"></i><span class="icon-badge wishlist-count">0</span></a>
+                <a href="#" class="cart-toggle" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="icon-badge cart-count">0</span></a>
+                <a href="#" aria-label="Account"><i class="fa-regular fa-user"></i></a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Subheader page layout -->
+    <div class="bg-light-gray py-5 border-bottom">
+        <div class="container text-center py-4">
+            <span class="text-xs text-uppercase tracking-widest text-gold font-body mb-2 d-block">Secure Checkpoint</span>
+            <h1 class="font-heading mb-0 text-uppercase tracking-widest text-lg">Your Cart & Checkout</h1>
+        </div>
+    </div>
+
+    <!-- 3. Checkout core content grid -->
+    <main class="section-padding bg-white">
+        <div class="container">
+            
+            <div id="checkout-empty-state" style="display: none;" class="text-center py-5">
+                <i class="fa-solid fa-bag-shopping text-muted mb-4" style="font-size: 4rem; opacity: 0.3;"></i>
+                <h3 class="font-heading mb-3">Your Cart is Empty</h3>
+                <p class="font-body text-muted text-sm mb-5">You haven't added any luxury items to your cart yet.</p>
+                <a href="shop.html" class="btn btn-dark-luxury">Browse Collections</a>
+            </div>
+
+            <div class="row g-5" id="checkout-main-grid">
+                
+                <!-- Left Column - Secure Shipping & Payment form -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    <form id="checkout-shipping-form" onsubmit="handleOrderSubmission(event)">
+                        
+                        <!-- 1. Customer Information -->
+                        <div class="mb-5">
+                            <h4 class="font-heading h5 mb-4 text-uppercase tracking-wider pb-2 border-bottom">1. Customer Information</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="checkout-label">First Name *</label>
+                                    <input type="text" class="checkout-input" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="checkout-label">Last Name *</label>
+                                    <input type="text" class="checkout-input" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="checkout-label">Email Address *</label>
+                                    <input type="email" class="checkout-input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Shipping Address -->
+                        <div class="mb-5">
+                            <h4 class="font-heading h5 mb-4 text-uppercase tracking-wider pb-2 border-bottom">2. Delivery Destination</h4>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="checkout-label">Street Address *</label>
+                                    <input type="text" class="checkout-input" placeholder="Apartment, suite, unit, etc. (optional)" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="checkout-label">City *</label>
+                                    <input type="text" class="checkout-input" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="checkout-label">State / Region *</label>
+                                    <input type="text" class="checkout-input" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="checkout-label">Postal Code *</label>
+                                    <input type="text" class="checkout-input" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="checkout-label">Country *</label>
+                                    <select class="checkout-input cursor-pointer" required>
+                                        <option value="United States">United States</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="France">France</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Spain">Spain</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Payment Method -->
+                        <div class="mb-5">
+                            <h4 class="font-heading h5 mb-4 text-uppercase tracking-wider pb-2 border-bottom">3. Payment Information</h4>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="checkout-label">Name on Card *</label>
+                                    <input type="text" class="checkout-input" required>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="checkout-label">Card Number *</label>
+                                    <input type="text" class="checkout-input" placeholder="•••• •••• •••• ••••" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="checkout-label">Expiry *</label>
+                                    <input type="text" class="checkout-input" placeholder="MM/YY" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="checkout-label">CVV *</label>
+                                    <input type="password" class="checkout-input" placeholder="•••" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="d-grid mt-4">
+                            <button type="submit" id="submit-order-btn" class="btn btn-dark-luxury py-3 text-uppercase font-body tracking-wider text-sm">Place Secured Order</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Column - Order Summary & Cart list -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="checkout-summary-card p-4 p-md-5">
+                        <h4 class="font-heading h5 mb-4 text-uppercase tracking-wider">Your Order</h4>
+                        
+                        <!-- Cart lists -->
+                        <div id="checkout-cart-items-wrapper" class="mb-4">
+                            <!-- Dynamic checkout items rows -->
+                        </div>
+
+                        <!-- Coupon Code input -->
+                        <div class="mb-4">
+                            <label class="checkout-label">Promotion Voucher</label>
+                            <div class="coupon-input-group">
+                                <input type="text" id="coupon-field" placeholder="Enter coupon code" class="coupon-input">
+                                <button type="button" onclick="applyCoupon()" class="coupon-btn">Apply</button>
+                            </div>
+                            <small class="text-xs font-body text-success d-block mt-2" id="coupon-feedback" style="display:none !important;"></small>
+                        </div>
+
+                        <!-- Calculations and totals -->
+                        <div class="border-top pt-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-sm font-body text-muted">Subtotal</span>
+                                <span class="text-sm font-body text-dark" id="calc-subtotal">$0.00</span>
+                            </div>
+                            
+                            <!-- Discount row -->
+                            <div class="d-flex justify-content-between mb-2" id="discount-row" style="display: none !important;">
+                                <span class="text-sm font-body text-success" id="discount-label">Discount (10%)</span>
+                                <span class="text-sm font-body text-success" id="calc-discount">-$0.00</span>
+                            </div>
+
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-sm font-body text-muted">Shipping</span>
+                                <span class="text-sm font-body text-dark" id="calc-shipping">Complimentary</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-4">
+                                <span class="text-sm font-body text-muted">Estimated Tax</span>
+                                <span class="text-sm font-body text-dark" id="calc-tax">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between border-top pt-4">
+                                <h5 class="font-heading mb-0 text-uppercase tracking-widest text-sm">Total Due</h5>
+                                <h5 class="font-body mb-0 text-dark font-weight-bold" id="calc-total">$0.00</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Secure Success Modal -->
+    <div class="modal fade rounded-0" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 bg-white p-5 text-center">
+                <div class="success-checkmark-circle">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                
+                <h3 class="font-heading mb-3 text-dark">Order Completed</h3>
+                <p class="font-body text-muted text-sm mb-4 leading-relaxed">Thank you for your purchase. Your payment has been processed securely. An email summary of your transaction details is on the way.</p>
+                
+                <!-- Random order number -->
+                <div class="bg-light-gray py-2 px-3 mb-4 rounded d-inline-block">
+                    <span class="text-xs text-muted font-body uppercase tracking-wider">Order Reference:</span>
+                    <span class="text-sm font-body text-dark font-weight-bold ms-1" id="success-order-id">AES-593821</span>
+                </div>
+
+                <div class="d-grid">
+                    <button onclick="dismissSuccessAndReturn()" class="btn btn-dark-luxury text-sm py-3 font-body tracking-wider rounded-0">Return to Collections</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Premium Footer -->
+    <footer class="luxury-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer-logo">AÉTHER</div>
+                    <p class="font-body text-xs text-muted mb-4" style="max-width: 300px; line-height: 1.8;">A premium modern design study formulating essential garments through minimalist shapes, select fabrications, and clean luxury detailing.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="footer-title">Collections</h6>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?category=men">Men's Wardrobe</a></li>
+                        <li><a href="shop.html?category=women">Women's Wardrobe</a></li>
+                        <li><a href="shop.html?category=accessories">Essentials & Bags</a></li>
+                        <li><a href="shop.html?category=footwear">Shoes & Sneakers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="footer-title">Support</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Studio</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Sizing Advisor</a></li>
+                        <li><a href="#">Care Guides</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-12">
+                    <h6 class="footer-title">Studio Policies</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Details</a></li>
+                        <li><a href="#">Returns & Audits</a></li>
+                        <li><a href="#">Privacy Framework</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <span>&copy; 2026 Aéther Studio Inc. All rights reserved.</span>
+                <span class="text-uppercase tracking-widest text-xs">Developed with Google DeepMind Antigravity</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP Core & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/animation.js"></script>
+
+    <!-- Checkout Dynamic Page Logic -->
+    <script>
+        // Global variables for calculations
+        let couponDiscountPercent = 0;
+        let appliedCouponCode = '';
+
+        function updateCheckoutPageUI() {
+            const emptyState = document.getElementById('checkout-empty-state');
+            const mainGrid = document.getElementById('checkout-main-grid');
+            const itemsWrapper = document.getElementById('checkout-cart-items-wrapper');
+
+            if (!emptyState || !mainGrid || !itemsWrapper) return;
+
+            // If cart is empty
+            if (cart.length === 0) {
+                emptyState.style.display = 'block';
+                mainGrid.style.display = 'none';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            mainGrid.style.display = 'flex';
+
+            // Populate cart item list
+            let html = '';
+            cart.forEach(item => {
+                html += `
+                    <div class="checkout-card-item d-flex align-items-center mb-3 pb-3 border-bottom">
+                        <img src="${item.image}" alt="${item.name}" class="img-fluid" style="width: 70px; height: 95px; object-fit: cover;">
+                        <div class="ms-3 flex-grow-1">
+                            <span class="text-xs text-uppercase font-body tracking-widest text-muted">${item.brand}</span>
+                            <h6 class="font-heading mb-1 text-sm"><a href="product.html?id=${item.productId}" class="text-dark text-decoration-none">${item.name}</a></h6>
+                            <p class="text-xs font-body mb-2 text-muted">Size: ${item.size} | Color: ${item.color}</p>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="quantity-selector d-flex align-items-center border" style="height: 30px;">
+                                    <button onclick="updateCartQty('${item.cartItemId}', ${item.quantity - 1})" class="btn py-1 px-2 border-0 shadow-none"><i class="fa-solid fa-minus" style="font-size: 8px;"></i></button>
+                                    <span class="px-2 font-body text-xs">${item.quantity}</span>
+                                    <button onclick="updateCartQty('${item.cartItemId}', ${item.quantity + 1})" class="btn py-1 px-2 border-0 shadow-none"><i class="fa-solid fa-plus" style="font-size: 8px;"></i></button>
+                                </div>
+                                <span class="font-body text-sm text-dark">$${(item.price * item.quantity).toLocaleString()}.00</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            itemsWrapper.innerHTML = html;
+
+            // Run calculations
+            recalculateTotals();
+        }
+
+        function recalculateTotals() {
+            const subtotal = getCartTotal();
+            const discountAmount = subtotal * couponDiscountPercent;
+            const discountedSubtotal = subtotal - discountAmount;
+            
+            // Shipping rule: Free over $150, else $15
+            const shippingCost = (discountedSubtotal > 150 || subtotal === 0) ? 0 : 15;
+            
+            // Tax: standard 8% estimated tax
+            const taxAmount = discountedSubtotal * 0.08;
+            const finalTotal = discountedSubtotal + shippingCost + taxAmount;
+
+            // Load values to DOM
+            document.getElementById('calc-subtotal').innerText = `$${subtotal.toLocaleString()}.00`;
+            
+            const discRow = document.getElementById('discount-row');
+            if (couponDiscountPercent > 0) {
+                discRow.style.setProperty('display', 'flex', 'important');
+                document.getElementById('discount-label').innerText = `Voucher (${appliedCouponCode.toUpperCase()})`;
+                document.getElementById('calc-discount').innerText = `-$${discountAmount.toLocaleString()}.00`;
+            } else {
+                discRow.style.setProperty('display', 'none', 'important');
+            }
+
+            document.getElementById('calc-shipping').innerText = shippingCost === 0 ? 'Complimentary' : `$${shippingCost.toLocaleString()}.00`;
+            document.getElementById('calc-tax').innerText = `$${taxAmount.toLocaleString()}.00`;
+            document.getElementById('calc-total').innerText = `$${finalTotal.toLocaleString()}.00`;
+        }
+
+        // Apply voucher coupons logic
+        function applyCoupon() {
+            const couponField = document.getElementById('coupon-field');
+            const feedback = document.getElementById('coupon-feedback');
+            const code = couponField.value.trim().toUpperCase();
+
+            if (code === 'WELCOME10') {
+                couponDiscountPercent = 0.10;
+                appliedCouponCode = code;
+                feedback.innerText = 'Coupon applied: 10% discount subtracted.';
+                feedback.className = 'text-xs font-body text-success d-block mt-2';
+                feedback.style.setProperty('display', 'block', 'important');
+                showToast('Coupon WELCOME10 applied successfully');
+            } else if (code === 'AETHER50') {
+                couponDiscountPercent = 0.50;
+                appliedCouponCode = code;
+                feedback.innerText = 'Developer Coupon applied: 50% discount subtracted.';
+                feedback.className = 'text-xs font-body text-success d-block mt-2';
+                feedback.style.setProperty('display', 'block', 'important');
+                showToast('Coupon AETHER50 applied successfully');
+            } else if (code === '') {
+                couponDiscountPercent = 0;
+                appliedCouponCode = '';
+                feedback.style.setProperty('display', 'none', 'important');
+            } else {
+                couponDiscountPercent = 0;
+                appliedCouponCode = '';
+                feedback.innerText = 'Invalid voucher code. Try WELCOME10 or AETHER50.';
+                feedback.className = 'text-xs font-body text-danger d-block mt-2';
+                feedback.style.setProperty('display', 'block', 'important');
+                showToast('Voucher coupon is invalid');
+            }
+            recalculateTotals();
+        }
+
+        // Order completion submission
+        function handleOrderSubmission(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submit-order-btn');
+            
+            // Add loader visual
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin me-2"></i> processing secure transaction...`;
+
+            setTimeout(() => {
+                // Generate a random order number
+                const orderNum = 'AES-' + Math.floor(100000 + Math.random() * 900000);
+                document.getElementById('success-order-id').innerText = orderNum;
+
+                // Show Bootstrap Modal
+                const successModalEl = document.getElementById('successModal');
+                const bootstrapModal = new bootstrap.Modal(successModalEl);
+                bootstrapModal.show();
+
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Place Secured Order';
+            }, 1500);
+        }
+
+        // Dismiss Modal and flush cart
+        function dismissSuccessAndReturn() {
+            // Close modal
+            const successModalEl = document.getElementById('successModal');
+            bootstrap.Modal.getInstance(successModalEl).hide();
+
+            // Clear Cart data
+            clearCart();
+
+            // Redirect back to shop collections
+            window.location.href = 'shop.html';
+        }
+
+        // Run updates on DOM content loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCheckoutPageUI();
+        });
+    </script>
+</body>
+</html>

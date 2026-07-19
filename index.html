@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AÉTHER STUDIO - Luxury Fashion Essentials</title>
+    <meta name="description" content="Timeless luxury apparel designed with minimalist refinement. Discover the Aéther collections.">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+    <!-- 1. Preloader Screen -->
+    <div id="preloader">
+        <div class="preloader-logo">AÉTHER</div>
+        <div class="preloader-line"></div>
+    </div>
+
+    <!-- 2. Custom Mouse Follower -->
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-ring"></div>
+
+    <!-- 3. Sticky Transparent Header Navbar -->
+    <header class="luxury-navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler d-lg-none bg-transparent border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdowns" aria-controls="navbarDropdowns" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Brand Logo -->
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-light">AÉTHER</span>
+                <span class="brand-dark">AÉTHER</span>
+            </a>
+
+            <!-- Mega Menu & Nav Links -->
+            <nav class="collapse navbar-collapse d-lg-block" id="navbarDropdowns">
+                <ul class="navbar-nav d-lg-flex flex-lg-row justify-content-center m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item nav-item-dropdown">
+                        <a class="nav-link" href="shop.html">Collections <i class="fa-solid fa-chevron-down ms-1" style="font-size: 8px;"></i></a>
+                        <!-- Mega Menu Container -->
+                        <div class="mega-menu">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <h6 class="mega-menu-title">Men</h6>
+                                        <ul class="mega-menu-list">
+                                            <li><a href="shop.html?category=men">New Apparel</a></li>
+                                            <li><a href="shop.html?category=men">Outerwear</a></li>
+                                            <li><a href="shop.html?category=men">Knitwear</a></li>
+                                            <li><a href="shop.html?category=men">Trousers</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <h6 class="mega-menu-title">Women</h6>
+                                        <ul class="mega-menu-list">
+                                            <li><a href="shop.html?category=women">New Arrivals</a></li>
+                                            <li><a href="shop.html?category=women">Sweaters</a></li>
+                                            <li><a href="shop.html?category=women">Jackets & Coats</a></li>
+                                            <li><a href="shop.html?category=women">Denim</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <h6 class="mega-menu-title">Essentials</h6>
+                                        <ul class="mega-menu-list">
+                                            <li><a href="shop.html?category=accessories">Bags & Leather</a></li>
+                                            <li><a href="shop.html?category=accessories">Caps & Beanies</a></li>
+                                            <li><a href="shop.html?category=footwear">Court Sneakers</a></li>
+                                            <li><a href="shop.html?category=footwear">Leather Boots</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-image-card">
+                                            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=500" alt="New Season look">
+                                            <div class="mega-menu-image-overlay">
+                                                <span>Summer '26</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="checkout.html">Checkout</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Navbar Utilities Icons -->
+            <div class="navbar-icons">
+                <a href="#" class="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#" class="cart-toggle" aria-label="Wishlist"><i class="fa-regular fa-heart"></i><span class="icon-badge wishlist-count">0</span></a>
+                <a href="#" class="cart-toggle" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="icon-badge cart-count">0</span></a>
+                <a href="#" aria-label="Account"><i class="fa-regular fa-user"></i></a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 4. Fullscreen Split Hero Section -->
+    <section class="hero-slider-section">
+        <div class="hero-split-wrapper">
+            
+            <!-- Left Editorial Text -->
+            <div class="hero-left-content">
+                <span class="hero-subtitle">Minimalist Luxury</span>
+                <h1 class="hero-title">Timeless<br>Essentials</h1>
+                <p class="hero-desc">An architectural study in modern drape and premium texture. Crafted for the minimalist wardrobe, engineered to survive cycles of time.</p>
+                <div>
+                    <a href="shop.html" class="btn btn-dark-luxury">Shop Collection</a>
+                </div>
+            </div>
+
+            <!-- Right Visual Panel -->
+            <div class="hero-right-gallery">
+                <div class="hero-img-cover-reveal"></div>
+                <div class="hero-image-reveal" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200&auto=format&fit=crop');"></div>
+            </div>
+
+        </div>
+
+        <!-- Scroll Down indicator -->
+        <div class="scroll-indicator-container">
+            <div class="scroll-indicator-line-wrapper">
+                <div class="scroll-indicator-line"></div>
+            </div>
+            <span class="scroll-indicator-text">Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- 5. Featured Categories Grid -->
+    <section class="section-padding bg-light-gray">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Curated Wardrobe</span>
+                <h2 class="section-title">Shop by Category</h2>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Women -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600" alt="Women Category" class="category-card-img">
+                        <div class="category-card-overlay">
+                            <h3 class="category-card-title">Women</h3>
+                            <a href="shop.html?category=women" class="category-card-link text-uppercase">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Men -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600" alt="Men Category" class="category-card-img">
+                        <div class="category-card-overlay">
+                            <h3 class="category-card-title">Men</h3>
+                            <a href="shop.html?category=men" class="category-card-link text-uppercase">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accessories -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=600" alt="Accessories Category" class="category-card-img">
+                        <div class="category-card-overlay">
+                            <h3 class="category-card-title">Accessories</h3>
+                            <a href="shop.html?category=accessories" class="category-card-link text-uppercase">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footwear -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600" alt="Footwear Category" class="category-card-img">
+                        <div class="category-card-overlay">
+                            <h3 class="category-card-title">Footwear</h3>
+                            <a href="shop.html?category=footwear" class="category-card-link text-uppercase">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. New Arrivals (8 Products Grid) -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="section-header d-flex justify-content-between align-items-end flex-wrap gap-3">
+                <div>
+                    <span class="section-subtitle">Newly Unveiled</span>
+                    <h2 class="section-title mb-0">The New Arrivals</h2>
+                </div>
+                <div>
+                    <a href="shop.html" class="text-uppercase font-body text-xs tracking-widest text-dark luxury-underline">View Catalog <i class="fa-solid fa-arrow-right-long ms-2"></i></a>
+                </div>
+            </div>
+
+            <div class="row g-4" id="arrivals-grid">
+                <!-- Dynamically Populated with JS for clean maintenance -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Widescreen Parallax Promo Banner -->
+    <section class="parallax-banner-section">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 text-start" data-aos="fade-right">
+                    <div class="parallax-content py-5">
+                        <span class="text-xs text-uppercase tracking-widest text-gold font-body mb-2 d-block">Premium Fabrication</span>
+                        <h2 class="section-title">The Wool & Cashmere Study</h2>
+                        <p class="font-body text-sm mb-5 text-light-gray" style="opacity:0.85;">Sourced directly from certified ethical mills in Italy, our knitwear collection blends heavy structure with double-faced organic cashmere threads to establish weightless warmth.</p>
+                        <a href="shop.html?search=Cashmere" class="btn btn-gold-luxury">Explore Fabrication</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Instagram Gallery -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Aéther in Frame</span>
+                <h2 class="section-title">Instagram Gallery</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 col-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="insta-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=400" alt="Instagram Model">
+                        <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="insta-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=400" alt="Instagram Model">
+                        <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="insta-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=400" alt="Instagram Model">
+                        <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="insta-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=400" alt="Instagram Model">
+                        <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Luxury Newsletter signup -->
+    <section class="newsletter-section text-center">
+        <div class="container" data-aos="fade-up">
+            <div class="newsletter-wrapper">
+                <span class="section-subtitle">Stay Informed</span>
+                <h2 class="font-heading mb-4 text-dark h3">Join the Club</h2>
+                <p class="font-body text-muted text-sm mb-5">Subscribe to receive exclusive previews of upcoming seasonal drops, private collection listings, and studio design research notes.</p>
+                <form class="newsletter-input-group mt-3" onsubmit="event.preventDefault(); showToast('Subscribed to newsletter'); this.reset();">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Premium Footer -->
+    <footer class="luxury-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer-logo">AÉTHER</div>
+                    <p class="font-body text-xs text-muted mb-4" style="max-width: 300px; line-height: 1.8;">A premium modern design study formulating essential garments through minimalist shapes, select fabrications, and clean luxury detailing.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="footer-title">Collections</h6>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?category=men">Men's Wardrobe</a></li>
+                        <li><a href="shop.html?category=women">Women's Wardrobe</a></li>
+                        <li><a href="shop.html?category=accessories">Essentials & Bags</a></li>
+                        <li><a href="shop.html?category=footwear">Shoes & Sneakers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="footer-title">Support</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Studio</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Sizing Advisor</a></li>
+                        <li><a href="#">Care Guides</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-12">
+                    <h6 class="footer-title">Studio Policies</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Details</a></li>
+                        <li><a href="#">Returns & Audits</a></li>
+                        <li><a href="#">Privacy Framework</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <span>&copy; 2026 Aéther Studio Inc. All rights reserved.</span>
+                <span class="text-uppercase tracking-widest text-xs">Developed with Google DeepMind Antigravity</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP Core & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/animation.js"></script>
+
+    <!-- Inline script specifically to load dynamic arrivals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const arrivalsGrid = document.getElementById('arrivals-grid');
+            if (arrivalsGrid && typeof PRODUCTS !== 'undefined') {
+                // Fetch first 8 products for index arrivals
+                const arrivals = PRODUCTS.slice(0, 8);
+                let html = '';
+                
+                arrivals.forEach((p, idx) => {
+                    const isNewBadge = p.isNew ? `<span class="product-card-badge">New</span>` : '';
+                    
+                    html += `
+                        <div class="col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="${(idx % 4 + 1) * 100}">
+                            <div class="product-card">
+                                <div class="product-card-img-wrapper">
+                                    ${isNewBadge}
+                                    <button class="wishlist-btn" data-id="${p.id}" onclick="toggleWishlist(${p.id})">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                    <a href="product.html?id=${p.id}">
+                                        <img src="${p.images[0]}" alt="${p.name}" class="product-card-img">
+                                        <img src="${p.images[1]}" alt="${p.name}" class="product-card-img product-card-img-hover">
+                                    </a>
+                                    <div class="product-action-container">
+                                        <button class="btn-quick-view" onclick="openQuickView(${p.id})">Quick View</button>
+                                        <button class="btn-add-cart-card" onclick="addToCart(${p.id}, 1)" title="Add to Cart">
+                                            <i class="fa-solid fa-bag-shopping"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-card-info">
+                                    <span class="product-card-brand">${p.brand}</span>
+                                    <h3 class="product-card-name"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+                                    <div class="product-card-price">$${p.price.toLocaleString()}.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                arrivalsGrid.innerHTML = html;
+                
+                // Re-sync wishlist heart buttons state
+                if (typeof updateWishlistUI === 'function') {
+                    updateWishlistUI();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
